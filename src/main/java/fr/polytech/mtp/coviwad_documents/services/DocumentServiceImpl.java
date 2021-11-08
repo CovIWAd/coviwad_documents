@@ -11,8 +11,17 @@ import java.util.ArrayList;
 
 @Service
 public class DocumentServiceImpl implements DocumentService {
+    @Override
+    public byte[] filteToByteArray(File file) {
+        return new byte[0];
+    }
 
     @Override
+    public File byteArrayToFile(byte[] byteArray) {
+        return null;
+    }
+
+    /*@Override
     public void insertFile() throws SQLException, IOException {
         File file = new File("myimage.gif");
         FileInputStream fis = new FileInputStream(file);
@@ -39,5 +48,5 @@ public class DocumentServiceImpl implements DocumentService {
         ps.close();
 
         return null;
-    }
+    }*/
 }

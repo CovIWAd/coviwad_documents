@@ -7,6 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface DocumentService {
-    public abstract void insertFile() throws SQLException, IOException;
-    public abstract ArrayList<File> getImagesByUserId() throws SQLException, IOException;
+    public abstract byte[] filteToByteArray(File file);
+    public abstract File byteArrayToFile(byte[] byteArray);
 }
