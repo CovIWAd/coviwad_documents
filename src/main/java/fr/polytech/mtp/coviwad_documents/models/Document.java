@@ -1,17 +1,8 @@
 package fr.polytech.mtp.coviwad_documents.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.util.Date;
 
-/*enum Type {
-    VACCINE,
-    PCR,
-    ANTIGENIC
-}*/
 
 @Entity(name="documents")
 @Access(AccessType.FIELD)
@@ -19,38 +10,44 @@ public class Document {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long document_id;
-    private String document_type;
+    @Column(name="document_id")
+    private long documentId;
+    @Column(name="document_type")
+    private String documentType;
+    @Column(name="file")
     private String file;
-    private Date test_date;
-    private boolean is_positive;
-    private String user_id;
+    @Column(name="test_date")
+    private Date testDate;
+    @Column(name="is_positive")
+    private boolean isPositive;
+    @Column(name="user_id")
+    private String userId;
 
-    public Document(String document_type, String file, Date test_date, boolean is_positive, String user_id) {
-        this.document_type = document_type;
+    public Document(String documentType, String file, Date testDate, boolean is_positive, String userId) {
+        this.documentType = documentType;
         this.file = file;
-        this.test_date = test_date;
-        this.is_positive = is_positive;
-        this.user_id = user_id;
+        this.testDate = testDate;
+        this.isPositive = is_positive;
+        this.userId = userId;
     }
 
     public Document() {
     }
 
-    public long getDocument_id() {
-        return document_id;
+    public long getDocumentId() {
+        return documentId;
     }
 
-    public void setDocument_id(int document_id) {
-        this.document_id = document_id;
+    public void setDocumentId(int document_id) {
+        this.documentId = document_id;
     }
 
-    public String getDocument_type() {
-        return document_type;
+    public String getDocumentType() {
+        return documentType;
     }
 
-    public void setDocument_type(String document_type) {
-        this.document_type = document_type;
+    public void setDocumentType(String document_type) {
+        this.documentType = document_type;
     }
 
     public String getFile() {
@@ -61,27 +58,27 @@ public class Document {
         this.file = file;
     }
 
-    public Date getTest_date() {
-        return test_date;
+    public Date getTestDate() {
+        return testDate;
     }
 
-    public void setTest_date(Date test_date) {
-        this.test_date = test_date;
+    public void setTestDate(Date test_date) {
+        this.testDate = test_date;
     }
 
-    public boolean isIs_positive() {
-        return is_positive;
+    public boolean isIsPositive() {
+        return isPositive;
     }
 
-    public void setIs_positive(boolean is_positive) {
-        this.is_positive = is_positive;
+    public void setIsPositive(boolean is_positive) {
+        this.isPositive = is_positive;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String user_id) {
+        this.userId = user_id;
     }
 }

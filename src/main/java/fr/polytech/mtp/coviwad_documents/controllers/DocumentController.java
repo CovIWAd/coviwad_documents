@@ -1,6 +1,7 @@
 package fr.polytech.mtp.coviwad_documents.controllers;
 
 import fr.polytech.mtp.coviwad_documents.models.Document;
+import fr.polytech.mtp.coviwad_documents.models.DocumentType;
 import fr.polytech.mtp.coviwad_documents.repositories.DocumentRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class DocumentController {
                                 @RequestParam(value = "is_positive", defaultValue = "false") boolean is_positive,
                                 @RequestParam(value = "user_id", defaultValue = "1") String user_id
     ) throws ParseException {
-        System.out.println("OO");
+        System.out.println(DocumentType.valueOf(document_type));
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = formatter.parse(test_date);
         return new Document(document_type, file, date, Boolean.parseBoolean(String.valueOf(is_positive)), user_id);
@@ -35,7 +36,11 @@ public class DocumentController {
 
     @PostMapping("/doc")
     public Document postDocument(@RequestBody Document document) {
-        System.out.println("Document file: " + document.getFile());
+        try{
+            DocumentType dt = DocumentType.valueOf(document.getDocumentType());
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
         return document;
     }
 
@@ -44,11 +49,16 @@ public class DocumentController {
         return documentRepository.findAll();
     }
 
+    @GetMapping("/user/{idUser}")
+    public List<Document> getDocumentsByUserId(@PathVariable String idUser){
+        return documentRepository.findByUserId(idUser);
+    }
+
     @GetMapping
-    @RequestMapping(" {id} ")
+    @RequestMapping("{id}")
     public Document get(@PathVariable Long id) {
         if(!documentRepository.findById(id).isPresent()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User with ID "+id+" not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Document with ID "+id+" not found");
         }
         return documentRepository.getById(id);
     }
