@@ -9,12 +9,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.annotation.security.RolesAllowed;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 @RestController
+@RolesAllowed("user")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/documents")
 public class DocumentController {
 
