@@ -13,4 +13,4 @@ Then connect to the database '\c documents-covid'
 
 ## Launch microservice
 
-Run bootRun with the given environment variables (in consignes.txt).
+Run `bootRun` with the given environment variables (in consignes.txt).
