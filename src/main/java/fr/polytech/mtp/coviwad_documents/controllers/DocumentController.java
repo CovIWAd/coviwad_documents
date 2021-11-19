@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RolesAllowed("user")
+@RolesAllowed({"user","admin"})
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/documents")
 public class DocumentController {
