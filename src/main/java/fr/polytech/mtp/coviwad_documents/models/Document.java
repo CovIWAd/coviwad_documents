@@ -31,6 +31,15 @@ public class Document {
         this.userId = userId;
     }
 
+    public Document(long documentId, String documentType, String file, Date testDate, boolean is_positive, String userId) {
+        this.documentId = documentId;
+        this.documentType = documentType;
+        this.file = file;
+        this.testDate = testDate;
+        this.isPositive = is_positive;
+        this.userId = userId;
+    }
+
     public Document() {
     }
 

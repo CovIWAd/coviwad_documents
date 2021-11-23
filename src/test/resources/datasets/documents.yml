@@ -1,0 +1,13 @@
+documents :
+  - documentId: 1
+    documentType: "VACCINE"
+    file: "a"
+    documentDate: ""
+    is_positive: false,
+    userId: "1"
+  - documentId: 2
+    documentType: "PCR"
+    file: "b"
+    documentDate: ""
+    is_positive: true,
+    userId: "1"
