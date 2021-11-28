@@ -80,7 +80,7 @@ public class DocumentController {
 
     @RequestMapping(value="{id}",method = RequestMethod.PUT)
     public Document update ( @PathVariable Long id , @RequestBody Document document) {
-        // TODO: Distinguer les deux erreurs
+
         if(id != null && document != null && documentRepository.findById(id).isPresent()) {
             Document existingDocument = documentRepository.getById(id);
             BeanUtils.copyProperties(document,existingDocument,"document_id");
