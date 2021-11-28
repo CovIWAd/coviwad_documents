@@ -13,22 +13,4 @@ Then connect to the database '\c documents_covid'
 
 ## Launch microservice
 
-Run `bootRun` with the given environment variables:
-
-
-
-```
-KEYCLOAK_CLIENT = login-app
-
-KEYCLOAK_REALM = SpringBootKeycloak
-
-DB_URL = jdbc:postgresql://localhost:5438/documents_covid
-
-DB_USER = postgres
-
-KEYCLOAK_SECRET = 44333c05-2d29-473f-963d-9c3af217ee7c
-
-DB_PASSWORD = postgres
-
-KEYCLOAK_URL = http://localhost:5000/auth
-```
+Run `bootRun` with the environment variables given in the documentation.
